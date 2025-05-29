@@ -9,9 +9,9 @@ Presentation slides can be found [here](https://github.com/franceslinyc/RNN-LSTM
 
 ## References
 
-Hewamalage, Hansika, Christoph Bergmeir, and Kasun Bandara. 2021. “Recurrent Neural Networks for Time Series Forecasting: Current Status and Future Directions.” Interna- tional Journal of Forecasting 37 (1): 388–427.
+Hewamalage, Hansika, Christoph Bergmeir, and Kasun Bandara. 2021. “Recurrent Neural Networks for Time Series Forecasting: Current Status and Future Directions.” International Journal of Forecasting 37 (1): 388–427.
 
-Hewamalage, Hansika, Klaus Ackermann, and Christoph Bergmeir. 2023. “Forecast Eval- uation for Data Scientists: Common Pitfalls and Best Practices.” Data Mining and Knowledge Discovery 37 (2): 788–832.
+Hewamalage, Hansika, Klaus Ackermann, and Christoph Bergmeir. 2023. “Forecast Evaluation for Data Scientists: Common Pitfalls and Best Practices.” Data Mining and Knowledge Discovery 37 (2): 788–832.
 
 Olah, Christopher. 2015. “Understanding LSTM Networks.” https://colah.github.io/posts/2015-08-Understanding-LSTMs/.
 
