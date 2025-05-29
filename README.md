@@ -5,7 +5,7 @@ Presentation slide for Deep Learning AI Reading Group at OSU
 
 ## Documentation
 
-Presentation slides can be found [here](https://github.com/franceslinyc/RNN-LSTM-Time-Series-Forecasting-A-Review/blob/main/lstm.pdf). 
+Presentation slides can be found [here](https://github.com/franceslinyc/RNN-LSTM-Time-Series-Forecasting-A-Review-2025/blob/main/report/lstm.pdf). 
 
 ## References
 
