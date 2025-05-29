@@ -45,7 +45,7 @@ Resource:
 
   - where each cell passes recurrent information stored in the hidden state from one time step to the next. 
 
-![Unfolded Version of RNN. Reproduced from Olah (2015).](images/rnns.png)
+![Unfolded Version of RNN. Reproduced from Olah (2015).](../images/rnns.png)
 
 ## Recurrent Units
 
@@ -63,7 +63,7 @@ Types of RNN Cells are:
 
 ## Elman Recurrent Unit
 
-![Folded Version of RNN. Reproduced from Olah (2015).](images/rnn.png)
+![Folded Version of RNN. Reproduced from Olah (2015).](../images/rnn.png)
 
 ## Elman Recurrent Unit
 
@@ -99,7 +99,7 @@ o_t &= tanh(W_{oh} \cdot h_t + b_o),
 
 ## LSTM 
 
-![Folded Version of LSTM. Reproduced from Olah (2015).](images/lstm.png)
+![Folded Version of LSTM. Reproduced from Olah (2015).](../images/lstm.png)
 
 ## LSTM 
 
@@ -122,7 +122,7 @@ h_t &= o_t \cdot \tanh(c_t).
 
 ## LSTM Step 1
 
-![](images/1.png)
+![](../images/1.png)
 
 - The forget gate, $f_t$, 
 
@@ -132,7 +132,7 @@ h_t &= o_t \cdot \tanh(c_t).
 
 ## LSTM Step 2
 
-![](images/2.png)
+![](../images/2.png)
 
 - The input gate, $i_t$, 
 
@@ -144,7 +144,7 @@ h_t &= o_t \cdot \tanh(c_t).
 
 ## LSTM Step 3
 
-![](images/3.png)
+![](../images/3.png)
 
 - Next, the cell state, $c_t$, is updated by combining the previous cell state, $c_{t-1}$, and the candidate values, $\tilde{c}$. 
 
@@ -152,7 +152,7 @@ h_t &= o_t \cdot \tanh(c_t).
 
 ## LSTM Step 4
 
-![](images/4.png)
+![](../images/4.png)
 
 - Then, the output gate, $o_t$, determines the extent to which the cell state, $c_t$, is exposed to the hidden state, $h_t$. 
 
@@ -160,7 +160,7 @@ h_t &= o_t \cdot \tanh(c_t).
 
 ## GRU 
 
-![](images/gru.png)
+![](../images/gru.png)
 
 - GRU has gained popularity for its simpler design. 
 
@@ -202,19 +202,19 @@ See the paper for details on other steps such as data splitting, trend normaliza
 
 ## Figure 13: Relative Performance of Different Recurrrent Cell Types
 
-![](images/res-1.png)
+![](../images/res-1.png)
 
 - The difference is not significant based on the p-value. 
 
 ## Figure 14: Relative Performance of Different Optimizers
 
-![](images/res-2.png)
+![](../images/res-2.png)
 
 - The difference is not significant based on the p-value. 
 
 ## Figure 20: Performance of RNNs Compared to Traditional Univariate Techniques (1/3)
 
-![](images/res-3.png)
+![](../images/res-3.png)
 
 - An RNN architecture is able to outperform the benchmark techniques on all the datasets except the M4 dataset.  
 
@@ -222,25 +222,25 @@ See the paper for details on other steps such as data splitting, trend normaliza
 
 ## Figure 20: Performance of RNNs Compared to Traditional Univariate Techniques (2/3)
 
-![](images/res-4.png)
+![](../images/res-4.png)
 
 ## Figure 20: Performance of RNNs Compared to Traditional Univariate Techniques (3/3)
 
-![](images/res-5.png)
+![](../images/res-5.png)
 
 ## Figure 22: Performance of RNNs Compared to Traditional Univariate Techniques in Different M4 Categories (1/3)
 
-![](images/m4-1.png)
+![](../images/m4-1.png)
 
 - M3 and M4 span various domains, including microeconomics, macroeconomics, industry, finance, demography, and other sectors. 
 
 ## Figure 22: Performance of RNNs Compared to Traditional Univariate Techniques in Different M4 Categories (2/3)
  
-![](images/m4-2.png)
+![](../images/m4-2.png)
 
 ## Figure 22: Performance of RNNs Compared to Traditional Univariate Techniques in Different M4 Categories (3/3)
 
-![](images/m4-3.png)
+![](../images/m4-3.png)
 
 ## Recap of Datasets Used 
 
@@ -346,37 +346,37 @@ For tuning hyperparameters, there are several techniques, including:
 
 ## Table 4: Initial Hyperparameter Ranges
 
-![](images/initial.png)
+![](../images/initial.png)
 
 ## Figure 5: Stacked Architecture
 
-![](images/stacked.png)
+![](../images/stacked.png)
 
 ## Figure 6: Multi-layer Stacked Architecture
 
-![](images/stacked-2.png)
+![](../images/stacked-2.png)
 
 
 ## Table 5: Mean SMAPE Results (1/6)
 
-![](images/fig-2.png)
+![](../images/fig-2.png)
 
 ## Table 5: Mean SMAPE Results (2/6)
 
-![](images/fig-3.png)
+![](../images/fig-3.png)
 
 ## Table 5: Mean SMAPE Results (3/6)
 
-![](images/fig-4.png)
+![](../images/fig-4.png)
 
 ## Table 5: Mean SMAPE Results (4/6)
 
-![](images/fig-5.png)
+![](../images/fig-5.png)
 
 ## Table 5: Mean SMAPE Results (5/6)
 
-![](images/fig-6.png)
+![](../images/fig-6.png)
 
 ## Table 5: Mean SMAPE Results (6/6)
 
-![](images/fig-7.png)
+![](../images/fig-7.png)
