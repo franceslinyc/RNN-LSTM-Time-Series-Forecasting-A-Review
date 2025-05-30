@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Background 
 
-Main Paper: 
+Paper: 
 
 - Hewamalage, Hansika, Christoph Bergmeir, and Kasun Bandara. 2021. “Recurrent Neural Networks for Time Series Forecasting: Current Status and Future Directions.” Interna- tional Journal of Forecasting 37 (1): 388–427.
 
@@ -200,7 +200,7 @@ The datasets used for the experiments are taken from the following forecasting c
 
 ## Experimental Setup
 
-See the paper for details on other steps such as data splitting, trend normalization, and mean-variance normalization, as well as hyperparameter tuning and performance evaluations. 
+See the paper for details on other steps such as data splitting, STL decomposition (Seasonable and Trend Decomposition using Loess) , trend normalization, and mean normalization, as well as hyperparameter tuning and performance evaluations. 
 
 
 ## Results
@@ -211,7 +211,7 @@ See the paper for details on other steps such as data splitting, trend normaliza
 
 - Across all the datasets, it can be seen that the RNN models which perform significantly better than the benchmarks are mostly the variants of the stacked architecture. 
 
-  - **Comment.** See Table 5: Mean SMAPE Results for details, if needed. But a better plot (i.e., Figure 20) is coming up. 
+  - **Comment.** See Table 5: Mean SMAPE Results in Supplement for details, if needed. But a better plot (i.e., Figure 20) is coming up. 
 
 
 ## Figure 13: Relative Performance of Different Recurrrent Cell Types
@@ -273,7 +273,7 @@ See the paper for details on other steps such as data splitting, trend normaliza
 
 ## Discussion 
 
-**Comment.** I haven’t examined them in details, but I suspect the issue stems from inappropriate benchmarking and/or mishandling of time series characteristics like non-normality and seasonality. 
+**Comment.** I haven’t examined them in details, but I suspect the issue stems from inappropriate benchmarking and/or mishandling of time series characteristics. 
 
 For example, 
 
@@ -284,7 +284,7 @@ For example,
 
 ## Discussion 
 
-The paper was published in 2021. Two of its authors later published “Forecast evaluation for data scientists: common pitfalls and best practices” in 2023. Some highlights include: 
+The paper was published in 2021. Two of its authors later published “Forecast Evaluation for Data Scientists: Common Pitfallsand Best Practices” in 2023. Some highlights include: 
 
 1. ML and DL techniques (including transformer-based architectures) are becoming competitive in time series forecasting. 
 
@@ -407,3 +407,17 @@ For tuning hyperparameters, there are several techniques, including:
 ## Table 5: Mean SMAPE Results (6/6)
 
 ![](../images/fig-7.png)
+
+## Error Metrics
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lll}
+\hline
+\textbf{Metric} & \textbf{Definition} & \textbf{Formula} \\
+\hline
+SMAPE & Symmetric MAPE & $\frac{100}{T} \sum_{t=1}^{T} \frac{|y_t - \hat{y}_t|}{(|y_t| + |\hat{y}_t|) / 2}$ \\
+MASE & Mean Absolute Scaled Error & $\frac{ \frac{1}{T} \sum_{t=1}^{T} |y_t - \hat{y}_t| }{ \frac{1}{T - 1} \sum_{t=2}^{T} |y_t - y_{t-1}| }$ \\
+\hline
+\end{tabular}
+\end{table}
