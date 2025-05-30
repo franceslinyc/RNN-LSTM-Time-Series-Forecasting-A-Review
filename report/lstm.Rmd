@@ -19,51 +19,53 @@ Resource:
 
 - Olah, Christopher. 2015. “Understanding LSTM Networks.” https://colah.github.io/posts/2015-08-Understanding-LSTMs/. 
 
+
 ## Background 
 
-- Time series forecasting has been traditionally a topic in Statistics and Econometrics, from simple methods such as Seasonal Naive and Simple Exponential Smoothing, to more complex ones such as ETS and ARIMA. 
+- Time series forecasting has been traditionally a topic in statistics and econometrics, from simple methods such as Seasonal Naive and Simple Exponential Smoothing, to more complex ones such as ETS and ARIMA. 
 
-- However, such traditional univariate techniques lack key features needed for advanced forecasting tasks.
+- However, such traditional univariate techniques lack key features needed for advanced forecasting tasks. 
 
   - **Comment.** There are even more complex classes of models, such as state space models (SSMs).
 
-- With the ever increasing availability of data, ANNs (Artificial Neural Networks) have become a dominant and popular technique for machine learning tasks. 
+- With the ever increasing availability of data, ANNs (Artificial Neural Networks) have become a popular technique for machine learning tasks. 
+
 
 ## RNN 
 
-- RNNs (Recurrent Neural Networks) are the most commonly used neural networks architecture for sequence prediction problems.
-
-- An RNN consists of multiple RNN units. Commonly used units for sequence modelling tasks are: 
-
-  - the Elman RNN cell, the Long Short-Term Memory (LSTM) cell and the Gated Recurrent Unit (GRU). 
+- RNNs (Recurrent Neural Networks) are the most commonly used neural networks architecture for sequence prediction problems. 
 
 - Although most commonly used for natural language processing (NLP) tasks, these architectures are used in various time series forecasting tasks as well. 
+
 
 ## RNN
 
 - An RNN is composed of repeating cells or units that unfold or unroll over time,
 
-  - where each cell passes recurrent information stored in the hidden state from one time step to the next. 
+  - where each unit passes recurrent information stored in the hidden state from one time step to the next. 
 
 ![Unfolded Version of RNN. Reproduced from Olah (2015).](../images/rnns.png)
 
+
 ## Recurrent Units
 
-Types of RNN Cells are: 
+Commonly used units for sequence modelling tasks are: 
 
 - Elman Recurrent Unit (ERNN)
 
 - Long Short-Term Memory (LSTM) 
 
-  - We focus on the LSTM with a forget gate, as this is the version implemented in `PyTorch`. 
+  - We will focus on the LSTM with a forget gate. This is the version implemented in `PyTorch`. 
 
   - Several LSTM variants exist, but their performance is generally comparable. 
 
 - Gated Recurrent Unit (GRU)
 
+
 ## Elman Recurrent Unit
 
 ![Folded Version of RNN. Reproduced from Olah (2015).](../images/rnn.png)
+
 
 ## Elman Recurrent Unit
 
@@ -80,26 +82,31 @@ o_t &= tanh(W_{oh} \cdot h_t + b_o),
 
 - $\sigma$ and $tanh$ are the activation functions, the logistic sigmoid function and the hyperbolic tangent function, respectively. 
 
+
 ## Elman Recurrent Unit 
 
-- The ERNN cell suffers from the well-known vanishing and exploding gradient problems when trained with Backpropagation Through Time (BPTT) over long sequences. 
+- The ERNN unit suffers from the well-known vanishing and exploding gradient problems when trained with Backpropagation Through Time (BPTT) over long sequences. 
 
-- The LSTM unit was proposed to help capture long-term dependencies in sequence data and alleviate the vanishing gradient problem. 
+- The LSTM unit was proposed to help capture long-term dependencies in sequences and alleviate the vanishing gradient problem. 
 
   - LSTM alleviates this issue to some extent. 
   
   - **Comment.** This is one reason why transformer-based model is increasingly applied to forecasting tasks, but it has its limitations too. 
+ 
  
 ## LSTM 
 
 - An LSTM unit extends an RNN by introducing a cell state and three gates. 
 
   - The cell state carries long-term dependencies. The hidden state encodes short-term patterns. 
+  
   - The gates (i.e., the forget, input, and output gates) regulate the flow of information. 
+
 
 ## LSTM 
 
 ![Folded Version of LSTM. Reproduced from Olah (2015).](../images/lstm.png)
+
 
 ## LSTM 
 
@@ -120,6 +127,7 @@ h_t &= o_t \cdot \tanh(c_t).
 
 - $\sigma$ and $tanh$ the logistic sigmoid function and the hyperbolic tangent function, respectively. 
 
+
 ## LSTM Step 1
 
 ![](../images/1.png)
@@ -129,6 +137,7 @@ h_t &= o_t \cdot \tanh(c_t).
   - controls the extent to which information to discard or retain. 
 
   - outputs values in range $[0, 1]$, where $0$ means the information is completely discarded, and $1$ means it is fully retained. 
+  
 
 ## LSTM Step 2
 
@@ -138,9 +147,10 @@ h_t &= o_t \cdot \tanh(c_t).
 
   - regulates the amount of new information to add or discard. 
 
-  - also outputs values in in range $[0, 1]$, where $0$ means no information is added, and $1$ means it is fully added.
+  - also outputs values in in range $[0, 1]$, where $0$ means no information is added, and $1$ means it is fully added. 
 
-- The network computes the candidate values, $\tilde{c}$, which represents the proposed new information.
+- The network computes the candidate values, $\tilde{c}$, which represents the proposed new information. 
+
 
 ## LSTM Step 3
 
@@ -150,6 +160,7 @@ h_t &= o_t \cdot \tanh(c_t).
 
 - Recall that $f_t$ controls how much irrelevant information to discard, while $i_t$ determines how much new information to add when updating the cell state. 
 
+
 ## LSTM Step 4
 
 ![](../images/4.png)
@@ -157,6 +168,7 @@ h_t &= o_t \cdot \tanh(c_t).
 - Then, the output gate, $o_t$, determines the extent to which the cell state, $c_t$, is exposed to the hidden state, $h_t$. 
 
 - The hidden state, $h_t$, is updated by taking the cell state, $c_t$, and scaling it with the output gate, $o_t$. 
+
 
 ## GRU 
 
@@ -185,9 +197,11 @@ The datasets used for the experiments are taken from the following forecasting c
 
 - Tourism Forecasting Competition Dataset
 
+
 ## Experimental Setup
 
 See the paper for details on other steps such as data splitting, trend normalization, and mean-variance normalization, as well as hyperparameter tuning and performance evaluations. 
+
 
 ## Results
 
@@ -195,7 +209,7 @@ See the paper for details on other steps such as data splitting, trend normaliza
 
 - On the NN5 dataset, the RNN models have only managed to perform significantly better than ARIMA, but not ETS. 
 
-- Across all the datasets, it can be seen that the RNN models which perform significantly better than the benchmarks are mostly the variants of the Stacked architecture. 
+- Across all the datasets, it can be seen that the RNN models which perform significantly better than the benchmarks are mostly the variants of the stacked architecture. 
 
   - **Comment.** See Table 5: Mean SMAPE Results for details, if needed. But a better plot (i.e., Figure 20) is coming up. 
 
@@ -206,19 +220,22 @@ See the paper for details on other steps such as data splitting, trend normaliza
 
 - The difference is not significant based on the p-value. 
 
+
 ## Figure 14: Relative Performance of Different Optimizers
 
 ![](../images/res-2.png)
 
 - The difference is not significant based on the p-value. 
 
+
 ## Figure 20: Performance of RNNs Compared to Traditional Univariate Techniques (1/3)
 
 ![](../images/res-3.png)
 
-- An RNN architecture is able to outperform the benchmark techniques on all the datasets except the M4 dataset.  
+- An RNN architecture is able to outperform the benchmark techniques on all the datasets except the M4 dataset. 
 
-- **Typo.** ETS has the lowest mean SMAPE for the Tourism datatset. 
+  - **Typo.** ETS has the lowest mean SMAPE for the Tourism datatset. 
+
 
 ## Figure 20: Performance of RNNs Compared to Traditional Univariate Techniques (2/3)
 
@@ -234,20 +251,25 @@ See the paper for details on other steps such as data splitting, trend normaliza
 
 - M3 and M4 span various domains, including microeconomics, macroeconomics, industry, finance, demography, and other sectors. 
 
+
 ## Figure 22: Performance of RNNs Compared to Traditional Univariate Techniques in Different M4 Categories (2/3)
  
 ![](../images/m4-2.png)
+
 
 ## Figure 22: Performance of RNNs Compared to Traditional Univariate Techniques in Different M4 Categories (3/3)
 
 ![](../images/m4-3.png)
 
+
 ## Recap of Datasets Used 
 
-- CIF include both artificially generated series and series originating from the banking domain. 
+- CIF includes both artificially generated series and series originating from the banking domain. 
+
 - M3 and M4 span various domains, including microeconomics, macroeconomics, industry, finance, demography, and other sectors. 
 
-- The NN5 (daily cash withdrawal amounts from UK ATMs), Wikipedia web traffic, and the Tourism datasets contain non-negative series, meaning that they also have 0 values. 
+- NN5 (daily cash withdrawal amounts from UK ATMs), Wikipedia Web Traffic, and Tourism contain non-negative series, meaning that they also have 0 values. 
+
 
 ## Discussion 
 
@@ -262,11 +284,11 @@ For example,
 
 ## Discussion 
 
-The paper was published in 2021. Two of its authors later published “Forecast evaluation for data scientists: common pitfalls and best practices” in 2023, highlighting: 
+The paper was published in 2021. Two of its authors later published “Forecast evaluation for data scientists: common pitfalls and best practices” in 2023. Some highlights include: 
 
 1. ML and DL techniques (including transformer-based architectures) are becoming competitive in time series forecasting. 
 
-2. ML researchers often use inadequate benchmarking (e.g., ignore non-stationary or non-normality) or flawed evaluation methods, leading to misleading claims of superiority. 
+2. ML researchers often use inadequate benchmarking (e.g., overlooking non-stationarity or non-normality) or flawed evaluation methods, leading to misleading claims of superiority. 
 
 3. Best practices are outlined with respect to the different steps such as data partitioning, error metrics, statistical testing, and more. 
 
@@ -278,9 +300,9 @@ The paper was published in 2021. Two of its authors later published “Forecast 
 
 ## References
 
-Hewamalage, Hansika, Christoph Bergmeir, and Kasun Bandara. 2021. “Recurrent Neural Networks for Time Series Forecasting: Current Status and Future Directions.” Interna- tional Journal of Forecasting 37 (1): 388–427.
+Hewamalage, Hansika, Christoph Bergmeir, and Kasun Bandara. 2021. “Recurrent Neural Networks for Time Series Forecasting: Current Status and Future Directions.” International Journal of Forecasting 37 (1): 388–427.
 
-Hewamalage, Hansika, Klaus Ackermann, and Christoph Bergmeir. 2023. “Forecast Eval- uation for Data Scientists: Common Pitfalls and Best Practices.” Data Mining and Knowledge Discovery 37 (2): 788–832.
+Hewamalage, Hansika, Klaus Ackermann, and Christoph Bergmeir. 2023. “Forecast Evaluation for Data Scientists: Common Pitfalls and Best Practices.” Data Mining and Knowledge Discovery 37 (2): 788–832.
 
 Olah, Christopher. 2015. “Understanding LSTM Networks.” https://colah.github.io/posts/2015-08-Understanding-LSTMs/. 
 
@@ -322,6 +344,7 @@ Key hyperparameters important for training include:
 
   - controls how much the network’s parameters are adjusted during training in response to the gradients of the loss function. 
   
+
 ## Hyperparameter Tuning - Details
 
 4. Cell Dimension 
@@ -334,6 +357,7 @@ Key hyperparameters important for training include:
 
 6. Etc.  
 
+
 ## Hyperparameter Tuning - Cont. 
 
 For tuning hyperparameters, there are several techniques, including:
@@ -344,13 +368,16 @@ For tuning hyperparameters, there are several techniques, including:
 
 3. Random Search
 
+
 ## Table 4: Initial Hyperparameter Ranges
 
 ![](../images/initial.png)
 
+
 ## Figure 5: Stacked Architecture
 
 ![](../images/stacked.png)
+
 
 ## Figure 6: Multi-layer Stacked Architecture
 
