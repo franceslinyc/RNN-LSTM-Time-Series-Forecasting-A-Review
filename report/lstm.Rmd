@@ -136,7 +136,7 @@ h_t &= o_t \cdot \tanh(c_t).
 
   - controls the extent to which information to discard or retain. 
 
-  - outputs values in range $[0, 1]$, where $0$ means the information is completely discarded, and $1$ means it is fully retained. 
+  - outputs values in range $(0, 1)$, where $0$ means the information is completely discarded, and $1$ means it is fully retained. 
   
 
 ## LSTM Step 2
@@ -147,7 +147,7 @@ h_t &= o_t \cdot \tanh(c_t).
 
   - regulates the amount of new information to add or discard. 
 
-  - also outputs values in in range $[0, 1]$, where $0$ means no information is added, and $1$ means it is fully added. 
+  - also outputs values in in range $(0, 1)$, where $0$ means no information is added, and $1$ means it is fully added. 
 
 - The network computes the candidate values, $\tilde{c}$, which represents the proposed new information. 
 
